@@ -1,0 +1,11 @@
+<h1>編集画面</h1>
+  <%= form_with model: @post do |f| %>
+    <div>
+      <p>ユーザーネーム：<%= post.user.name %></p>
+        <%= image_tag post.get_image %>
+      <p>投稿ユーザー画像：<%= image_tag 'no_image.jpg' %></p>
+      <p>ショップ名：<%= post.title %></p>
+      <p>説明：<%= post.body %></p>
+    </div>
+  <% end %>
+     

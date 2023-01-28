@@ -1,9 +1,34 @@
-<% @posts.each do |post| %>
-<div>
-  <%= image_tag post.get_image %>
-  <p>投稿ユーザー画像：<%= image_tag 'no_image.jpg' %></p>
-  <p>ショップ名：<%= post.title %></p>
-  <p>説明：<%= post.body %></p>
-  <p>ユーザーネーム：<%= post.user.name %></p>
+<%= render 'users/sidebox', post: @post, user: @user %>
+
+<div class="col-md-8 offset-md-1">
+  <h2>投稿一覧</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>投稿ユーザー</th>
+          <th>場所</th>
+          <th>内容</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @posts.each do |post| %>
+        <tr>
+          <td>
+            <%= image_tag post.get_image %>
+          </td>
+          <td>
+            <%= image_tag 'no_image.jpg' %><%= post.user.name %>
+          </td>
+          <td>
+            <%= post.title %>
+          </td>
+          <td>
+            <%= post.body %>
+          </td>
+        <% end %>
+      </tbody>
+    </table>
 </div>
-<% end %>

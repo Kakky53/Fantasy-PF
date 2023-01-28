@@ -1,2 +1,26 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render 'users/sidebox', post: @post, user: @user %>
+
+<div class="col-md-8 offset-md-1">
+          <h2>投稿</h2>
+            <table class="table table-hover table-inverse">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>Opinion</th>
+                  <th colspan="3"></th>
+                </tr>
+              <tbody>
+                <% @posts.each do |post| %>
+                  <tr>
+                    <td><%= link_to user_path(post.user_id) do %>
+                          <%= image_tag post.user.get_image(100,100) %>
+                        <% end %>
+                    </td>
+                    <td>
+                      <%= link_to post.title, post_path(post.id) %>
+                    </td>
+                    <td><%= post.body %></td>
+                  </tr>
+                <% end %>
+              </tbody>

@@ -1,0 +1,39 @@
+<body>
+  <main>
+    <div class="container px-5 px-sm-0">
+      <div class="row">     
+        <div class="col-md-3">
+          <h1>ユーザー</h1>
+            <% if current_user.profile_image.attached? %>
+              <%= image_tag current_user.profile_image, size: "150x150" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "150x150" %>
+            <% end %>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th>
+                      名前<br>
+                      <%= user.name %>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      自己紹介
+                      
+                    </th>
+                  </tr>
+                  
+                  </tbody>
+              </table>
+                <div class="row">
+                  <%= link_to edit_user_path(user.id),class: "btn btn-outline-secondary btn-block" do %>
+                    プロフィール編集
+                  <% end %>
+                </div>
+                <div class="row">
+                  <%= link_to new_post_path(user.id),class: "btn btn-outline-secondary btn-block" do %>
+                    新規投稿
+                  <% end %>
+                </div>
+        </div>

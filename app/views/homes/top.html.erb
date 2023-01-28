@@ -1,1 +1,19 @@
-TOPページ
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-10">
+        <h2>
+          <strong>Fantasy</strong>は幻想的な[イラスト・写真]専用の投稿サイトです！
+        </h2>
+        <div class="btn-wrapper col-4 mx-auto">
+          <div class="row">
+            <%= link_to "ログインする", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign-in text-white" %>
+          </div>
+          <div class="row">
+              <%= link_to "ユーザー登録する（無料）", new_user_registration_path, class: "btn btn-success btn-sm btn-block mb-3 sign-in text-white" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
